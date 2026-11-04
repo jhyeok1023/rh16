@@ -7,8 +7,16 @@ public sealed class BuildInfoOverlay : MonoBehaviour
     private const float ReferenceHeight = 1080f;
     private const int ReferenceFontSize = 14;
     private const int MarginPx = 4;
-    private static readonly Color TextColor = new(1f, 1f, 1f, 0.6f);
-    private static readonly Color ShadowColor = new(0f, 0f, 0f, 0.6f);
+    private const int OutlinePx = 1;
+    private static readonly Color TextColor = Color.white;
+    private static readonly Color OutlineColor = Color.black;
+
+    private static readonly Vector2[] OutlineDirections =
+    {
+        new(-1, -1), new(0, -1), new(1, -1),
+        new(-1, 0),              new(1, 0),
+        new(-1, 1), new(0, 1), new(1, 1)
+    };
 
     private GUIContent _content;
     private Font _font;
@@ -25,7 +33,7 @@ public sealed class BuildInfoOverlay : MonoBehaviour
 
         var overlay = go.AddComponent<BuildInfoOverlay>();
         overlay._content = new GUIContent(info.text.Trim());
-        overlay._font = Resources.Load<Font>("Art/Fonts/COUR");
+        overlay._font = Font.CreateDynamicFontFromOSFont("Courier New", ReferenceFontSize);
     }
 
     private void OnGUI()
@@ -38,7 +46,11 @@ public sealed class BuildInfoOverlay : MonoBehaviour
         Vector2 size = _style.CalcSize(_content);
         var rect = new Rect(MarginPx, Screen.height - size.y - MarginPx, size.x, size.y);
 
-        DrawLabel(new Rect(rect.x + 1, rect.y + 1, rect.width, rect.height), ShadowColor);
+        foreach (Vector2 direction in OutlineDirections)
+        {
+            DrawLabel(OffsetRect(rect, direction * OutlinePx), OutlineColor);
+        }
+
         DrawLabel(rect, TextColor);
     }
 
@@ -46,5 +58,10 @@ public sealed class BuildInfoOverlay : MonoBehaviour
     {
         _style.normal.textColor = color;
         GUI.Label(rect, _content, _style);
+    }
+
+    private static Rect OffsetRect(Rect rect, Vector2 offset)
+    {
+        return new Rect(rect.position + offset, rect.size);
     }
 }
