@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 /// <summary>Moves between the title menu, difficulty select and options in Title.uxml.</summary>
-[RequireComponent(typeof(UIDocument))]
+[RequireComponent(typeof(PanelRenderer))]
 public sealed class TitleScreenController : MonoBehaviour
 {
     [SerializeField] private string playScene = "PlayScene";
 
+    private PanelRenderer _renderer;
     private VisualElement _titleScreen;
     private VisualElement _difficultyScreen;
     private VisualElement _settingsScreen;
@@ -19,7 +20,24 @@ public sealed class TitleScreenController : MonoBehaviour
 
     private void OnEnable()
     {
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        GameSettings.Apply();
+        _renderer = GetComponent<PanelRenderer>();
+        _renderer.RegisterUIReloadCallback(Bind);
+    }
+
+    private void OnDisable()
+    {
+        _renderer.UnregisterUIReloadCallback(Bind);
+    }
+
+    /// <summary>Runs once the panel is attached, and again whenever the UXML is reloaded.</summary>
+    private void Bind(PanelRenderer panelRenderer, VisualElement root)
+    {
+        if (root.childCount == 0)
+        {
+            return;
+        }
+
         _titleScreen = root.Q("title-screen");
         _difficultyScreen = root.Q("difficulty-screen");
         _settingsScreen = root.Q("settings-screen");
@@ -35,13 +53,12 @@ public sealed class TitleScreenController : MonoBehaviour
         _settings = new SettingsMenu(_settingsScreen);
         _settings.Closed += ShowTitle;
 
-        GameSettings.Apply();
         ShowTitle();
     }
 
     private void Update()
     {
-        _spinners.Tick();
+        _spinners?.Tick();
         _tick?.Invoke();
     }
 

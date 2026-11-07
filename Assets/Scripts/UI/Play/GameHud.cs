@@ -2,8 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-/// <summary>HUD of Play.uxml. Game logic pushes values in through the setters.</summary>
-[RequireComponent(typeof(UIDocument))]
+/// <summary>
+/// HUD of Play.uxml. Game logic pushes values in through the setters.
+/// <see cref="Instance"/> stays null until the panel is attached, which is after the first Update.
+/// </summary>
+[RequireComponent(typeof(PanelRenderer))]
 public sealed class GameHud : MonoBehaviour
 {
     private const float MaxPower = 4f;
@@ -11,6 +14,7 @@ public sealed class GameHud : MonoBehaviour
 
     public static GameHud Instance { get; private set; }
 
+    private PanelRenderer _renderer;
     private Label _hiScore;
     private Label _score;
     private Label _power;
@@ -26,8 +30,19 @@ public sealed class GameHud : MonoBehaviour
 
     private void OnEnable()
     {
+        _renderer = GetComponent<PanelRenderer>();
+        _renderer.RegisterUIReloadCallback(Bind);
+    }
+
+    /// <summary>Runs once the panel is attached, and again whenever the UXML is reloaded.</summary>
+    private void Bind(PanelRenderer panelRenderer, VisualElement root)
+    {
+        if (root.childCount == 0)
+        {
+            return;
+        }
+
         Instance = this;
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
         _hiScore = root.Q<Label>("hi-score");
         _score = root.Q<Label>("score");
@@ -54,6 +69,7 @@ public sealed class GameHud : MonoBehaviour
 
     private void OnDisable()
     {
+        _renderer.UnregisterUIReloadCallback(Bind);
         if (Instance == this)
         {
             Instance = null;

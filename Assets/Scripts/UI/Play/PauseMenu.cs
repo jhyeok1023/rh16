@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 /// <summary>Escape pauses the game and opens the menu over the play field.</summary>
-[RequireComponent(typeof(UIDocument))]
+[RequireComponent(typeof(PanelRenderer))]
 public sealed class PauseMenu : MonoBehaviour
 {
     [SerializeField] private string titleScene = "TitleScene";
 
+    private PanelRenderer _renderer;
     private VisualElement _panel;
     private VisualElement _settingsLayer;
     private UiMenu _menu;
@@ -20,7 +21,18 @@ public sealed class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        _renderer = GetComponent<PanelRenderer>();
+        _renderer.RegisterUIReloadCallback(Bind);
+    }
+
+    /// <summary>Runs once the panel is attached, and again whenever the UXML is reloaded.</summary>
+    private void Bind(PanelRenderer panelRenderer, VisualElement root)
+    {
+        if (root.childCount == 0)
+        {
+            return;
+        }
+
         _panel = root.Q("pause-panel");
         _settingsLayer = root.Q("pause-settings");
         _spinners = new UiSpinners(root);
@@ -32,12 +44,18 @@ public sealed class PauseMenu : MonoBehaviour
         _settings = new SettingsMenu(_settingsLayer);
         _settings.Closed += CloseSettings;
 
-        SetVisible(_panel, false);
+        _inSettings = false;
+        SetVisible(_panel, _paused);
         SetVisible(_settingsLayer, false);
+        if (_paused)
+        {
+            _menu.Activate();
+        }
     }
 
     private void OnDisable()
     {
+        _renderer.UnregisterUIReloadCallback(Bind);
         Time.timeScale = 1f;
     }
 
@@ -59,7 +77,7 @@ public sealed class PauseMenu : MonoBehaviour
         }
 
         Keyboard keyboard = Keyboard.current;
-        if (keyboard != null && Time.frameCount != _toggledFrame && keyboard.escapeKey.wasPressedThisFrame)
+        if (_menu != null && keyboard != null && Time.frameCount != _toggledFrame && keyboard.escapeKey.wasPressedThisFrame)
         {
             Pause();
         }
