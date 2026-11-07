@@ -1,0 +1,377 @@
+/* Palette: ink #1E0F6E, ice #7FE3FF, blush #FFB3D4, gold #FFC24D, lilac #C9B8FF */
+
+.stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    -unity-font-definition: url("/Assets/Art/Fonts/SongMyung-Regular.ttf");
+    color: #FFFFFF;
+}
+
+Label {
+    margin: 0;
+    padding: 0;
+}
+
+.abs {
+    position: absolute;
+}
+
+.latin {
+    -unity-font-definition: url("/Assets/Art/Fonts/Cinzel-Variable.ttf");
+}
+
+.bold {
+    -unity-font-style: bold;
+}
+
+.right {
+    -unity-text-align: middle-right;
+}
+
+.center {
+    -unity-text-align: middle-center;
+}
+
+.left {
+    -unity-text-align: middle-left;
+}
+
+.ink { color: #1E0F6E; }
+.ice { color: #7FE3FF; }
+.blush { color: #FFB3D4; }
+.gold { color: #FFC24D; }
+.lilac { color: #C9B8FF; }
+
+/* Images */
+
+.backdrop-gradient {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    background-image: url("/Assets/Art/Textures/title_background.png");
+}
+
+.ornament {
+    position: absolute;
+    left: -20px;
+    top: 660px;
+    width: 760px;
+    height: 432px;
+    rotate: 180deg;
+    background-image: url("/Assets/Art/Sprites/UI/title_decoration.png");
+}
+
+.shard {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+}
+
+.shard--title { background-image: url("/Assets/UI/Shapes/shard_title.png"); }
+.shard--settings { background-image: url("/Assets/UI/Shapes/shard_settings.png"); }
+
+.flower {
+    position: absolute;
+    background-image: url("/Assets/Art/Sprites/UI/flower.png");
+}
+
+.logo {
+    position: absolute;
+    background-image: url("/Assets/Art/Sprites/UI/title_logo.png");
+}
+
+.player {
+    position: absolute;
+    background-image: url("/Assets/Art/Sprites/Player/Player_0.png");
+}
+
+/* Menu rows */
+
+.menu-item {
+    position: absolute;
+    width: 440px;
+    height: 74px;
+    padding-left: 56px;
+    padding-right: 44px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("/Assets/UI/Shapes/ribbon.png");
+    -unity-slice-left: 30;
+    -unity-slice-right: 30;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.34);
+}
+
+.menu-item__label {
+    font-size: 36px;
+    color: #1E0F6E;
+}
+
+.menu-item__sub {
+    font-size: 20px;
+    color: #1E0F6E;
+    -unity-font-definition: url("/Assets/Art/Fonts/Cinzel-Variable.ttf");
+    -unity-font-style: bold;
+}
+
+.menu-item__lock {
+    width: 26px;
+    height: 26px;
+    background-image: url("/Assets/Art/Sprites/UI/ui_lock.png");
+    -unity-background-image-tint-color: rgba(30, 15, 110, 0.55);
+}
+
+.menu-item--selected {
+    width: 480px;
+    -unity-background-image-tint-color: #1E0F6E;
+}
+
+.menu-item--selected .menu-item__label {
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.menu-item--selected .menu-item__sub {
+    color: #7FE3FF;
+}
+
+.menu-item--disabled {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.12);
+}
+
+.menu-item--disabled .menu-item__label {
+    color: rgba(30, 15, 110, 0.55);
+}
+
+.menu-item--latin .menu-item__label {
+    font-size: 34px;
+    -unity-font-definition: url("/Assets/Art/Fonts/Cinzel-Variable.ttf");
+    -unity-font-style: bold;
+}
+
+.menu-item--latin.menu-item--selected .menu-item__label {
+    font-size: 38px;
+}
+
+/* Rows on the dark side invert the warm palette */
+
+.menu--dark .menu-item {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.14);
+}
+
+.menu--dark .menu-item__label {
+    color: #FFFFFF;
+}
+
+.menu--dark .menu-item__sub {
+    color: #7FE3FF;
+}
+
+.menu--dark .menu-item--selected {
+    -unity-background-image-tint-color: #FFFFFF;
+}
+
+.menu--dark .menu-item--selected .menu-item__label,
+.menu--dark .menu-item--selected .menu-item__sub {
+    color: #1E0F6E;
+}
+
+.cursor {
+    position: absolute;
+    left: -80px;
+    top: -10px;
+    width: 92px;
+    height: 92px;
+    background-image: url("/Assets/Art/Sprites/UI/flower.png");
+}
+
+/* Settings */
+
+.menu--dark .row {
+    width: 1100px;
+    height: 78px;
+    padding-right: 48px;
+    justify-content: flex-start;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu--dark .row.menu-item--selected {
+    -unity-background-image-tint-color: #FFFFFF;
+}
+
+.menu--dark .row .menu-item__label,
+.menu--dark .row.menu-item--selected .menu-item__label {
+    width: 214px;
+    font-size: 36px;
+}
+
+.menu--dark .row .menu-item__sub {
+    width: 150px;
+    color: #FFFFFF;
+    -unity-font-style: normal;
+}
+
+.menu--dark .row.menu-item--selected .menu-item__sub {
+    color: #1E0F6E;
+}
+
+.row .cursor {
+    left: -54px;
+    top: -5px;
+    width: 88px;
+    height: 88px;
+}
+
+.row__control {
+    position: absolute;
+    left: 484px;
+    top: 0;
+    width: 568px;
+    height: 78px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row__arrow {
+    width: 16px;
+    height: 24px;
+    margin-left: 14px;
+    margin-right: 14px;
+    -unity-background-image-tint-color: #FFFFFF;
+}
+
+.row__arrow--left { background-image: url("/Assets/UI/Shapes/arrow_left.png"); }
+.row__arrow--right { background-image: url("/Assets/UI/Shapes/arrow_right.png"); }
+
+.row__value {
+    flex-grow: 1;
+    font-size: 32px;
+    color: #FFFFFF;
+    -unity-text-align: middle-center;
+}
+
+.row__ticks {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.row__number {
+    width: 40px;
+    font-size: 28px;
+    color: #FFFFFF;
+    -unity-font-definition: url("/Assets/Art/Fonts/Cinzel-Variable.ttf");
+    -unity-font-style: bold;
+    -unity-text-align: middle-right;
+}
+
+.tick {
+    width: 34px;
+    height: 28px;
+    margin-right: 6px;
+    background-image: url("/Assets/UI/Shapes/tick.png");
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.14);
+}
+
+.tick--on {
+    -unity-background-image-tint-color: #7FE3FF;
+}
+
+.menu-item--selected .row__arrow {
+    -unity-background-image-tint-color: #1E0F6E;
+}
+
+.menu-item--selected .row__value,
+.menu-item--selected .row__number {
+    color: #1E0F6E;
+}
+
+.menu-item--selected .tick {
+    -unity-background-image-tint-color: rgba(30, 15, 110, 0.16);
+}
+
+.menu-item--selected .tick--on {
+    -unity-background-image-tint-color: #1E0F6E;
+}
+
+/* HUD */
+
+.plate {
+    position: absolute;
+    -unity-slice-left: 40;
+    -unity-slice-right: 40;
+    -unity-slice-top: 40;
+    -unity-slice-bottom: 40;
+    -unity-background-image-tint-color: #1E0F6E;
+}
+
+.plate--down { background-image: url("/Assets/UI/Shapes/plate_down.png"); }
+.plate--up { background-image: url("/Assets/UI/Shapes/plate_up.png"); }
+
+.stock {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+}
+
+.stock--spell {
+    background-image: url("/Assets/UI/Shapes/diamond.png");
+    -unity-background-image-tint-color: #7FE3FF;
+}
+
+.bar {
+    position: absolute;
+    background-image: url("/Assets/UI/Shapes/bar.png");
+    -unity-slice-left: 14;
+    -unity-slice-right: 14;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.16);
+}
+
+.bar__fill {
+    height: 100%;
+    width: 100%;
+    background-image: url("/Assets/UI/Shapes/bar.png");
+    -unity-slice-left: 14;
+    -unity-slice-right: 14;
+}
+
+.bar__fill--power { -unity-background-image-tint-color: #FFC24D; }
+.bar__fill--boss { -unity-background-image-tint-color: #FF5AA0; }
+
+.spell-banner {
+    position: absolute;
+    background-image: url("/Assets/UI/Shapes/ribbon.png");
+    -unity-slice-left: 30;
+    -unity-slice-right: 30;
+    -unity-background-image-tint-color: #7FE3FF;
+}
+
+/* Pause */
+
+.pause-panel {
+    position: absolute;
+    left: 34px;
+    top: 32px;
+    width: 1219px;
+    height: 1016px;
+    overflow: hidden;
+    background-color: rgba(18, 8, 62, 0.82);
+}
+
+.pause-title {
+    position: absolute;
+    left: 60px;
+    top: 80px;
+    width: 500px;
+    height: 780px;
+    background-image: url("/Assets/Art/Sprites/UI/pause_title.png");
+}

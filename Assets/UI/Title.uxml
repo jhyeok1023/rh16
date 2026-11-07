@@ -1,0 +1,75 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Template name="Backdrop" src="Backdrop.uxml" />
+    <ui:Template name="Settings" src="Settings.uxml" />
+    <Style src="Game.uss" />
+    <ui:VisualElement class="stage" picking-mode="Ignore">
+        <ui:Instance template="Backdrop" class="stage" picking-mode="Ignore" />
+
+        <ui:VisualElement name="title-screen" class="stage" picking-mode="Ignore">
+            <ui:VisualElement class="shard shard--title" picking-mode="Ignore" />
+            <ui:VisualElement class="logo" picking-mode="Ignore" style="left: 1120px; top: 20px; width: 760px; height: 860px;" />
+            <ui:VisualElement class="flower spin-mid" picking-mode="Ignore" style="left: 1750px; top: 420px; width: 130px; height: 130px;" />
+            <ui:Label text="Antinomy of Common Flowers" class="abs right latin gold" style="left: 980px; top: 716px; width: 600px; height: 44px; font-size: 32px;" />
+            <ui:Label text="© 2023 스노우닷&amp;서울아리수환악단" class="abs right lilac" style="left: 1200px; top: 990px; width: 680px; height: 30px; font-size: 22px;" />
+            <ui:Label text="English Patch by Papago, Google Translate" class="abs right lilac" style="left: 1200px; top: 1020px; width: 680px; height: 30px; font-size: 22px;" />
+            <ui:Label text="방향키 선택     Z 결정     X 취소" class="abs left ink" style="left: 356px; top: 900px; width: 560px; height: 36px; font-size: 26px;" />
+
+            <ui:VisualElement name="start" class="menu-item" style="left: 520px; top: 400px;">
+                <ui:Label text="게임 시작" class="menu-item__label" />
+                <ui:Label text="START" class="menu-item__sub" />
+            </ui:VisualElement>
+            <ui:VisualElement name="practice" class="menu-item menu-item--disabled" style="left: 486px; top: 492px;">
+                <ui:Label text="연습 모드" class="menu-item__label" />
+                <ui:VisualElement class="menu-item__lock" />
+            </ui:VisualElement>
+            <ui:VisualElement name="records" class="menu-item menu-item--disabled" style="left: 452px; top: 584px;">
+                <ui:Label text="기록" class="menu-item__label" />
+                <ui:VisualElement class="menu-item__lock" />
+            </ui:VisualElement>
+            <ui:VisualElement name="settings" class="menu-item" style="left: 418px; top: 676px;">
+                <ui:Label text="설정" class="menu-item__label" />
+                <ui:Label text="OPTION" class="menu-item__sub" />
+            </ui:VisualElement>
+            <ui:VisualElement name="quit" class="menu-item" style="left: 384px; top: 768px;">
+                <ui:Label text="종료" class="menu-item__label" />
+                <ui:Label text="QUIT" class="menu-item__sub" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="title-cursor" class="cursor spin-fast" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="difficulty-screen" class="stage" picking-mode="Ignore">
+            <ui:VisualElement class="shard shard--title" picking-mode="Ignore" />
+            <ui:VisualElement class="flower spin-slow" picking-mode="Ignore" style="left: 1090px; top: 120px; width: 620px; height: 620px;" />
+            <ui:VisualElement class="player" picking-mode="Ignore" style="left: 1250px; top: 212px; width: 300px; height: 435px;" />
+            <ui:Label text="NORMAL" class="abs center latin bold" style="left: 1040px; top: 770px; width: 720px; height: 120px; font-size: 110px;" />
+            <ui:Label text="기본 난이도" class="abs center ice" style="left: 1040px; top: 894px; width: 720px; height: 44px; font-size: 34px;" />
+            <ui:Label text="난이도 선택" class="abs left ink" style="left: 560px; top: 288px; width: 500px; height: 76px; font-size: 64px;" />
+            <ui:Label text="방향키 선택     Z 결정     X 뒤로" class="abs left ink" style="left: 356px; top: 900px; width: 560px; height: 36px; font-size: 26px;" />
+
+            <ui:VisualElement name="easy" class="menu-item menu-item--latin menu-item--disabled" style="left: 520px; top: 400px;">
+                <ui:Label text="EASY" class="menu-item__label" />
+                <ui:VisualElement class="menu-item__lock" />
+            </ui:VisualElement>
+            <ui:VisualElement name="normal" class="menu-item menu-item--latin" style="left: 486px; top: 492px;">
+                <ui:Label text="NORMAL" class="menu-item__label" />
+            </ui:VisualElement>
+            <ui:VisualElement name="hard" class="menu-item menu-item--latin menu-item--disabled" style="left: 452px; top: 584px;">
+                <ui:Label text="HARD" class="menu-item__label" />
+                <ui:VisualElement class="menu-item__lock" />
+            </ui:VisualElement>
+            <ui:VisualElement name="lunatic" class="menu-item menu-item--latin menu-item--disabled" style="left: 418px; top: 676px;">
+                <ui:Label text="LUNATIC" class="menu-item__label" />
+                <ui:VisualElement class="menu-item__lock" />
+            </ui:VisualElement>
+            <ui:VisualElement name="extra" class="menu-item menu-item--latin menu-item--disabled" style="left: 384px; top: 768px;">
+                <ui:Label text="EXTRA" class="menu-item__label" />
+                <ui:VisualElement class="menu-item__lock" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="difficulty-cursor" class="cursor spin-fast" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:Instance template="Settings" name="settings-screen" class="stage" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

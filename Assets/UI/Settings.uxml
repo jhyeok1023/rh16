@@ -1,0 +1,87 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Game.uss" />
+    <ui:VisualElement name="settings-root" class="stage menu--dark" picking-mode="Ignore">
+        <ui:VisualElement class="shard shard--settings" picking-mode="Ignore" />
+        <ui:Label text="설정" class="abs left" style="left: 660px; top: 62px; width: 170px; height: 80px; font-size: 76px;" />
+        <ui:Label text="OPTION" class="abs left latin ice" style="left: 830px; top: 96px; width: 240px; height: 36px; font-size: 26px;" />
+        <ui:Label text="방향키 항목·변경     X 돌아가기" class="abs left lilac" style="left: 980px; top: 990px; width: 800px; height: 36px; font-size: 26px;" />
+
+        <ui:VisualElement name="bgm" class="menu-item row" style="left: 630px; top: 190px;">
+            <ui:Label text="배경음" class="menu-item__label" />
+            <ui:Label text="BGM" class="menu-item__sub" />
+            <ui:VisualElement class="row__control" picking-mode="Ignore">
+                <ui:VisualElement class="row__arrow row__arrow--left" />
+                <ui:VisualElement name="bgm-ticks" class="row__ticks">
+                    <ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" />
+                    <ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" />
+                    <ui:Label name="bgm-value" text="8" class="row__number" />
+                </ui:VisualElement>
+                <ui:VisualElement class="row__arrow row__arrow--right" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="se" class="menu-item row" style="left: 594px; top: 286px;">
+            <ui:Label text="효과음" class="menu-item__label" />
+            <ui:Label text="SE" class="menu-item__sub" />
+            <ui:VisualElement class="row__control" picking-mode="Ignore">
+                <ui:VisualElement class="row__arrow row__arrow--left" />
+                <ui:VisualElement name="se-ticks" class="row__ticks">
+                    <ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" />
+                    <ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" /><ui:VisualElement class="tick" />
+                    <ui:Label name="se-value" text="7" class="row__number" />
+                </ui:VisualElement>
+                <ui:VisualElement class="row__arrow row__arrow--right" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="screen" class="menu-item row" style="left: 558px; top: 382px;">
+            <ui:Label text="화면" class="menu-item__label" />
+            <ui:Label text="SCREEN" class="menu-item__sub" />
+            <ui:VisualElement class="row__control" picking-mode="Ignore">
+                <ui:VisualElement class="row__arrow row__arrow--left" />
+                <ui:Label name="screen-value" text="전체 화면" class="row__value" />
+                <ui:VisualElement class="row__arrow row__arrow--right" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="resolution" class="menu-item row" style="left: 522px; top: 478px;">
+            <ui:Label text="해상도" class="menu-item__label" />
+            <ui:Label text="SIZE" class="menu-item__sub" />
+            <ui:VisualElement class="row__control" picking-mode="Ignore">
+                <ui:VisualElement class="row__arrow row__arrow--left" />
+                <ui:Label name="resolution-value" text="1920 × 1080" class="row__value" />
+                <ui:VisualElement class="row__arrow row__arrow--right" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="vsync" class="menu-item row" style="left: 486px; top: 574px;">
+            <ui:Label text="수직 동기화" class="menu-item__label" />
+            <ui:Label text="VSYNC" class="menu-item__sub" />
+            <ui:VisualElement class="row__control" picking-mode="Ignore">
+                <ui:VisualElement class="row__arrow row__arrow--left" />
+                <ui:Label name="vsync-value" text="켜짐" class="row__value" />
+                <ui:VisualElement class="row__arrow row__arrow--right" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="keys" class="menu-item row" style="left: 450px; top: 670px;">
+            <ui:Label text="조작키" class="menu-item__label" />
+            <ui:Label text="KEYS" class="menu-item__sub" />
+            <ui:VisualElement class="row__control" picking-mode="Ignore">
+                <ui:Label text="Z 결정 · X 취소 · Shift 저속" class="row__value right" style="font-size: 30px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="reset" class="menu-item" style="left: 414px; top: 766px;">
+            <ui:Label text="기본값으로" class="menu-item__label" />
+            <ui:Label text="RESET" class="menu-item__sub" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="back" class="menu-item" style="left: 378px; top: 858px;">
+            <ui:Label text="돌아가기" class="menu-item__label" />
+            <ui:Label text="BACK" class="menu-item__sub" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="settings-cursor" class="cursor spin-fast" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

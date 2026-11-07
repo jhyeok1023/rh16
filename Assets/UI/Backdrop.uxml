@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Game.uss" />
+    <ui:VisualElement name="backdrop" class="stage" picking-mode="Ignore">
+        <ui:VisualElement class="backdrop-gradient" picking-mode="Ignore" />
+        <ui:VisualElement class="flower spin-slow" picking-mode="Ignore" style="left: -240px; top: -260px; width: 780px; height: 780px;" />
+        <ui:VisualElement class="ornament" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

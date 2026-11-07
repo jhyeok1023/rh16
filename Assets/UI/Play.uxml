@@ -1,0 +1,87 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Template name="Backdrop" src="Backdrop.uxml" />
+    <ui:Template name="Settings" src="Settings.uxml" />
+    <Style src="Game.uss" />
+    <ui:VisualElement class="stage" picking-mode="Ignore">
+
+        <ui:VisualElement name="hud" class="stage" picking-mode="Ignore">
+            <ui:VisualElement class="plate plate--down" style="left: 1296px; top: 52px; width: 544px; height: 208px;" />
+            <ui:Label text="최고 점수" class="abs left ice" style="left: 1340px; top: 84px; width: 200px; height: 44px; font-size: 26px;" />
+            <ui:Label name="hi-score" text="00,000,000" class="abs right latin" style="left: 1500px; top: 84px; width: 296px; height: 44px; font-size: 34px;" />
+            <ui:Label text="점수" class="abs left blush" style="left: 1340px; top: 148px; width: 120px; height: 66px; font-size: 30px;" />
+            <ui:Label name="score" text="00,000,000" class="abs right latin bold" style="left: 1400px; top: 148px; width: 396px; height: 66px; font-size: 52px;" />
+
+            <ui:VisualElement class="plate plate--up" style="left: 1320px; top: 276px; width: 544px; height: 160px;" />
+            <ui:Label text="잔기" class="abs left blush" style="left: 1364px; top: 304px; width: 92px; height: 46px; font-size: 28px;" />
+            <ui:Label text="스펠" class="abs left ice" style="left: 1364px; top: 362px; width: 92px; height: 46px; font-size: 28px;" />
+            <ui:VisualElement name="lives" class="abs" picking-mode="Ignore" style="left: 1480px; top: 304px; flex-direction: row;">
+                <ui:VisualElement class="flower" style="position: relative; width: 46px; height: 46px; margin-right: 10px;" />
+                <ui:VisualElement class="flower" style="position: relative; width: 46px; height: 46px; margin-right: 10px;" />
+                <ui:VisualElement class="flower" style="position: relative; width: 46px; height: 46px; margin-right: 10px;" />
+                <ui:VisualElement class="flower" style="position: relative; width: 46px; height: 46px; margin-right: 10px;" />
+                <ui:VisualElement class="flower" style="position: relative; width: 46px; height: 46px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="spells" class="abs" picking-mode="Ignore" style="left: 1480px; top: 362px; flex-direction: row;">
+                <ui:VisualElement class="stock stock--spell" style="position: relative; margin-right: 10px;" />
+                <ui:VisualElement class="stock stock--spell" style="position: relative; margin-right: 10px;" />
+                <ui:VisualElement class="stock stock--spell" style="position: relative; margin-right: 10px;" />
+                <ui:VisualElement class="stock stock--spell" style="position: relative; margin-right: 10px;" />
+                <ui:VisualElement class="stock stock--spell" style="position: relative;" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="plate plate--down" style="left: 1344px; top: 452px; width: 544px; height: 150px;" />
+            <ui:Label text="파워" class="abs left blush" style="left: 1388px; top: 478px; width: 92px; height: 44px; font-size: 28px;" />
+            <ui:VisualElement class="bar" style="left: 1504px; top: 490px; width: 236px; height: 20px;">
+                <ui:VisualElement name="power-fill" class="bar__fill bar__fill--power" />
+            </ui:VisualElement>
+            <ui:Label name="power" text="0.00" class="abs right latin bold" style="left: 1744px; top: 478px; width: 100px; height: 44px; font-size: 30px;" />
+            <ui:Label text="그레이즈" class="abs left ice" style="left: 1388px; top: 534px; width: 160px; height: 44px; font-size: 28px;" />
+            <ui:Label name="graze" text="0" class="abs right latin bold" style="left: 1600px; top: 534px; width: 244px; height: 44px; font-size: 34px;" />
+
+            <ui:VisualElement class="logo" picking-mode="Ignore" style="left: 1440px; top: 612px; width: 340px; height: 385px;" />
+            <ui:VisualElement class="flower" picking-mode="Ignore" style="left: 1722px; top: 790px; width: 58px; height: 58px;" />
+            <ui:Label text="Antinomy of Common Flowers" class="abs center latin gold" style="left: 1330px; top: 1000px; width: 560px; height: 30px; font-size: 22px;" />
+
+            <ui:VisualElement name="boss" class="abs" picking-mode="Ignore" style="left: 34px; top: 32px; width: 1219px; height: 60px;">
+                <ui:Label text="BOSS" class="abs left latin bold ice" style="left: 24px; top: 12px; width: 90px; height: 32px; font-size: 22px;" />
+                <ui:VisualElement class="bar" style="left: 100px; top: 20px; width: 1000px; height: 16px;">
+                    <ui:VisualElement name="boss-fill" class="bar__fill bar__fill--boss" />
+                </ui:VisualElement>
+                <ui:Label name="boss-timer" text="00.00" class="abs right latin bold" style="left: 1100px; top: 8px; width: 100px; height: 40px; font-size: 30px;" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="spell-banner" class="spell-banner" picking-mode="Ignore" style="left: 833px; top: 98px; width: 420px; height: 56px; padding-right: 36px; justify-content: center;">
+                <ui:Label name="spell-name" text="스펠 카드 이름" class="right ink" style="font-size: 30px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="pause-panel" class="pause-panel menu--dark">
+            <ui:VisualElement class="flower spin-slow" picking-mode="Ignore" style="left: 720px; top: 560px; width: 760px; height: 760px;" />
+            <ui:VisualElement class="pause-title" picking-mode="Ignore" />
+
+            <ui:VisualElement name="resume" class="menu-item" style="left: 640px; top: 300px;">
+                <ui:Label text="계속하기" class="menu-item__label" />
+                <ui:Label text="RESUME" class="menu-item__sub" />
+            </ui:VisualElement>
+            <ui:VisualElement name="retry" class="menu-item" style="left: 606px; top: 392px;">
+                <ui:Label text="처음부터" class="menu-item__label" />
+                <ui:Label text="RETRY" class="menu-item__sub" />
+            </ui:VisualElement>
+            <ui:VisualElement name="settings" class="menu-item" style="left: 572px; top: 484px;">
+                <ui:Label text="설정" class="menu-item__label" />
+                <ui:Label text="OPTION" class="menu-item__sub" />
+            </ui:VisualElement>
+            <ui:VisualElement name="title" class="menu-item" style="left: 538px; top: 576px;">
+                <ui:Label text="타이틀로" class="menu-item__label" />
+                <ui:Label text="TITLE" class="menu-item__sub" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="pause-cursor" class="cursor spin-fast" picking-mode="Ignore" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="pause-settings" class="stage" picking-mode="Ignore">
+            <ui:Instance template="Backdrop" class="stage" picking-mode="Ignore" />
+            <ui:Instance template="Settings" class="stage" picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
